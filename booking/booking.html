@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Northeast Dental Online Booking</title>
+    <link rel="icon" type="image/x-icon" href="../resources/Icons/Northeast-Dental-FavIcon-large.svg">
+
+    <link rel="stylesheet" href="booking.css" />
+    <link rel="stylesheet" href="../style.css" />
+    <!-- <link rel="stylesheet" href="../index.css" /> -->
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="booking.js"></script>
+    <script src="../scripts/navEffects.js" defer></script>
+</head>
+
+<body>
+    <header class="home-navbar">
+        <div>
+            <!-- <div class="home-background home-background1">
+                    </div> -->
+            <div class="nav-left">
+                <a href="../index.html"><img alt="NortEast Dental Clinic Logo"
+                        src="../resources/Branding/Northeast-logo1.svg" class="nav-logo" /></a>
+            </div>
+            <!-- <div class="nav-right">
+
+                <button onclick="confirmNewTab(phoneLink1, phoneMessage1)"
+                    class="nav-right-phone-calendar button nav-right-child1">
+                    <img alt="image" src="../resources/Icons/phone.svg" class="nav-right-image" />
+                    <span class="nav-right-text">
+                        <span>0961 634 9939</span>
+                        <br />
+                    </span>
+                </button>
+            </div> -->
+        </div>
+    </header>
+    <div class="form-background"></div>
+
+    <section class="main-wrapper">
+        <div>
+            <div class="clinic-wrapper">
+                <div class="clinic-image">
+                    <img src="../resources/Doctors/doc-pic1.png" alt="Northeast Dental Clinic Doctor" />
+                </div>
+                <h1 class="form-header">Book an Appointment with us</h1>
+            </div>
+            <div class="form-wrapper">
+
+
+                <form action="" id="appointmentForm">
+                    <div class="mb-5">
+                        <label for="name" class="form-label"> Full Name </label>
+                        <div class="flex flex-wrap mx-3">
+                            <div class="w-full sm:w-half px-3">
+                                <input required type="text" name="name" id="fname" placeholder="First Name"
+                                    class="form-input" />
+                            </div>
+                            <div class="w-full sm:w-half px-3">
+                                <input required type="text" name="name" id="lname" placeholder="Last Name"
+                                    class="form-input" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-5">
+                        <label for="phone" class="form-label"> Phone Number </label>
+                        <input required type="text" name="phone" id="phone" placeholder="Enter your phone number"
+                            class="form-input" />
+                    </div>
+                    <div class="mb-5">
+                        <label for="emailid" class="form-label"> Email Address </label>
+                        <input required type="email" name="email" id="emailid" placeholder="Enter your email"
+                            class="form-input" />
+                    </div>
+
+                    <div class="mb-5">
+                        <label for="service" class="form-label"> Select a Purpose for the Appointment </label>
+                        <div class="select">
+                            <select name="service">
+                                <option value="Dental Consultation">Dental Consultation</option>
+                                <option value="Oral Prophylaxis">Oral Prophylaxis</option>
+                                <option value="Tooth Extraction">Tooth Extraction</option>
+                                <option value="Tooth Whitening">Tooth Whitening</option>
+                                <option value="Dental Braces">Dental Braces</option>
+                                <option value="Dentures">Dentures</option>
+                                <option value="Periapical X-ray">Periapical X-ray</option>
+                                <option value="Cosmetic Veneers">Cosmetic Veneers</option>
+                                <option value="Crowns & Bridges">Crowns & Bridges</option>
+                                <option value="Impacted Tooth Surgery">Impacted Tooth Surgery</option>
+                                <option value="Root Canal Treatment">Root Canal Treatment</option>
+                                <option value="Fluoride Application">Fluoride Application</option>
+                                <option value="Dental Filling">Dental Filling</option>
+                                <option value="Others: ">Others...</option>
+                            </select>
+                        </div>
+                        <div class="mb-5" id="otherAppear">
+                            <input type="text" name="otherService" id="otherService"
+                                placeholder="If Selected Others, Please specify here..." class="form-input" />
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap mx-3">
+                        <div class="w-full sm:w-half px-3">
+                            <div class="mb-5 w-full">
+                                <label for="date" class="form-label"> Date </label>
+                                <input required type="date" name="date" id="date" class="form-input" />
+                            </div>
+                        </div>
+                        <div class="w-full sm:w-half px-3">
+                            <div class="mb-5">
+                                <label for="time" class="form-label"> Time </label>
+                                <div class="select">
+                                    <select name="time">
+                                        <option value="9:00 AM">9:00 AM</option>
+                                        <option value="9:30 AM">9:30 AM</option>
+                                        <option value="10:00 AM">10:00 AM</option>
+                                        <option value="10:30 AM">10:30 AM</option>
+                                        <option value="11:00 AM">11:00 AM</option>
+                                        <option value="11:30 AM">11:30 AM</option>
+                                        <option value="1:00 PM">1:00 PM</option>
+                                        <option value="1:30 PM">1:30 PM</option>
+                                        <option value="2:00 PM">2:00 PM</option>
+                                        <option value="2:30 PM">2:30 PM</option>
+                                        <option value="3:00 PM">3:00 PM</option>
+                                        <option value="3:30 PM">3:30 PM</option>
+                                        <option value="4:00 PM">4:00 PM</option>
+                                        <option value="4:30 PM">4:30 PM</option>
+                                        <option value="5:00 PM">5:00 PM</option>
+                                        <option value="6:30 PM">6:30 PM</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button class="btn" onclick="clickedBook()">Book Appointment</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+    </script>
+
+</body>
+
+</html>

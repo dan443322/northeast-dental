@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/x-icon" href="resources/Icons/Northeast-Dental-FavIcon-large.svg">
+    <title>NorthEeast Dental Clinic</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+
+    <meta property="og:title" content="NortEeast Dental Clinic">
+    <meta property="og:description"
+        content="We aim to provide the best and most appropriate dental treatment for each individual.">
+    <!-- <meta property="og:image" content="URL to a large image">
+      <meta property="og:url" content="URL of the page"> -->
+    <meta property="og:type" content="website">
+
+    <link rel="stylesheet" href="./style.css" />
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+        data-tag="font" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+        data-tag="font" />
+
+
+    <script src="./scripts/preloadwebflow.js"></script>
+    <script src="./scripts/navEffects.js" defer></script>
+    <script src="./scripts/reviewsScript.js" defer></script>
+    <script src="./scripts/promtToLinks.js" defer></script>
+    <script src="scripts/servicesScripts.js" defer></script>
+    <script src="./scripts/otherScripts.js" defer></script>
+    <script src="./scripts/gsapScripts.js" defer></script>
+
+    <!-- JQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
+
+    <!-- Locomotive -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"> </script> -->
+
+    <!-- splidejs -->
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"
+        integrity="sha256-FZsW7H2V5X9TGinSjjwYJ419Xka27I8XPDmWryGlWtw=" crossorigin="anonymous" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
+        integrity="sha256-5uKiXEwbaQh9cgd2/5Vp6WmMnsUr3VZZw0a8rKnOKNU=" crossorigin="anonymous">
+
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollToPlugin.min.js"></script>
+
+    <!-- rellax -->
+    <script src="
+    https://cdn.jsdelivr.net/npm/rellax@1.12.1/rellax.min.js
+    "></script>
+    <!-- <link href="
+    https://cdn.jsdelivr.net/npm/rellax@1.12.1/css/bootstrap.min.css
+    " rel="stylesheet"> -->
+
+</head>
+
+<body>
+    <link href="./index.css" rel="stylesheet" />
+    <div class="preloader-bg" id="preloading">
+        <div class="preloader"><img src="resources/external/blue-loading-animated.gif" alt=""></div>
+    </div>
+
+    <span class="back-to-top" id="button-to-top">
+        <button>
+            <img src="resources/Icons/back-2-top-svgrepo-com.svg" id="to-top-image">
+        </button>
+    </span>
+
+    <div class="service-info-popup">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <header class="home-navbar">
+        <div>
+            <!-- <div class="home-background home-background1">
+                    </div> -->
+            <div class="nav-left">
+                <a href="index.html"><img alt="NortEast Dental Clinic Logo" src="resources/Branding/Northeast-logo1.svg"
+                        class="nav-logo" /></a>
+                <nav id="topNavbar" class="nav-links">
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#reviews" class="nav-link">Reviews</a>
+                    <a href="#contact-location" class="nav-link">Contact</a>
+                </nav>
+            </div>
+            <div class="nav-right">
+
+                <button onclick="confirmNewTab(phoneLink1, phoneMessage1)"
+                    class="nav-right-phone-calendar button nav-right-child1">
+                    <img alt="image" src="resources/Icons/phone.svg" class="nav-right-image" />
+                    <span class="nav-right-text">
+                        <span>0961 634 9939</span>
+                        <br />
+                    </span>
+                </button>
+                <a href="./booking/booking.html">
+                    <button class="nav-right-phone-calendar button button-main">
+                        <img alt="image" src="resources/Icons/calendar.svg" class="nav-right-image" />
+                        <span class="nav-right-text">Book an appointment</span>
+                    </button>
+                </a>
+            </div>
+            <div class="nav-burger-menu" onclick="toggleImageAndDiv()">
+                <img src="resources/Icons/menu-burger-horizontal-svgrepo-com.svg" alt="" class="burger-icon">
+            </div>
+            <div class="home-mobile-menu">
+                <div class="mobile-nav">
+
+                    <nav class="mobile-links">
+                        <a href="#home" class="nav-link" onclick="backToTop()">Home</a>
+                        <a href="#about" class="nav-link" onclick="afterNavClick()">About Us</a>
+                        <a href="#blog" class="nav-link" onclick="afterNavClick()">Blog</a>
+                        <a href="#services" class="nav-link" onclick="afterNavClick()">Services</a>
+                        <a href="#reviews" class="nav-link" onclick="afterNavClick()">Reviews</a>
+                        <a href="#schedule" class="nav-link" onclick="afterNavClick()">Contact Us</a>
+
+                    </nav>
+                    <a href="./booking/booking.html">
+                        <button class="home-book1 button button-main">
+                            <img alt="image" src="resources/Icons/calendar.svg" class="home-image09" />
+                            <span class="home-text14">Book an appointment</span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div>
+        <div class="home-container area">
+
+
+
+            <section class="home-hero rellax" id="home">
+                <div class="home-main rellax" data-rellax-speed="-4">
+                    <div class="home-content">
+                        <div class="home-heading01">
+                            <h1 class="home-header">NorthEast
+                                Dental Clinic</h1>
+                            <p class="home-caption">
+                                <span class="home-text">
+                                    We aim to provide the best and most appropriate dental
+                                    treatment for each individual.
+                                </span>
+                                <br />
+                            </p>
+                        </div>
+                        <a href="#about"><button class="button button-main home-book2">
+                                <span>Learn More</span>
+                            </button></a>
+                    </div>
+                    <div class="doctor-image1">
+                        <img alt="Doctor" src="resources/Doctors/doc-pic1.png" class="home-image11"
+                            style="height: 400px; width: auto; object-fit: cover; border-radius: 100%;"
+                            draggable="false" />
+                    </div>
+                </div>
+
+                <div class="home-background"></div>
+            </section>
+
+
+            <section class="home-features" id="home-features">
+                <div class="features-content">
+
+                    <div class="features-section quick-links features-root-class-name">
+                        <div>
+                            <span class="features-number">1</span>
+                        </div>
+                        <div class="features-steps">
+                            <div class="features-heading">
+                                <h3 class="features-header">
+                                    <span>Book for Dental Consultation</span>
+                                </h3>
+                            </div>
+                            <p class="features-text">
+                                <span>
+                                    Schedule your dental consultation online. Choose a
+                                    convenient date and time.
+                                </span>
+                            </p>
+                            <div class="features-divider"></div>
+                        </div>
+                    </div>
+                    <div class="features-section quick-links features-root-class-name">
+                        <div>
+                            <span class="features-number">2</span>
+                        </div>
+                        <div class="features-steps">
+                            <div class="features-heading">
+                                <h3 class="features-header">
+                                    <span>Personalized Assessment</span>
+                                </h3>
+
+                            </div>
+                            <p class="features-text">
+                                <span>
+                                    Experience a comprehensive dental assessment and shape your
+                                    personalized treatment plan through discussions with us.
+                                </span>
+                            </p>
+                            <div class="features-divider"></div>
+                        </div>
+                    </div>
+                    <div class="features-section quick-links features-root-class-name">
+
+                        <div>
+                            <span class="features-number">3</span>
+                        </div>
+                        <div class="features-steps">
+                            <div class="features-heading">
+                                <h3 class="features-header">
+                                    <span>Begin Your Dental Wellness</span>
+                                </h3>
+
+                            </div>
+                            <p class="features-text">
+                                <span>
+                                    Get a personalized treatment plan and ongoing support from
+                                    us after your consultation.
+                                </span>
+                            </p>
+
+                            <div class="features-divider"></div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="home-about" id="about">
+                <div class="about-content">
+                    <div class="left-about">
+                        <div class="about-imgflex">
+                            <div class="about-img1"> <img src="resources/external/docwithkid2.jpg" alt=""
+                                    draggable="false">
+                            </div>
+                            <div class="about-img2"><img src="resources/external/docwithkid3.jpg" alt=""
+                                    draggable="false">
+                            </div>
+                            <div class="about-img3"> <img src="resources/external/place-1.jpg" alt="" draggable="false">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right-about">
+                        <h6 class="about-title">ABOUT US</h6>
+                        <h1 class="about-header">Our Goal is Your Well-being</h1>
+                        <p class="about-text">We aim to provide the best and most appropriate dental
+                            treatment for each individual.</p>
+                        <div class="office-summary">
+                            <div class="contact-summary">
+                                <ul>
+                                    <li onclick="confirmNewTab(phoneLink2, phoneMessage1)"
+                                        class="nav-right-phone-calendar button"><img src="resources/Icons/phone.svg"
+                                            class="call-icon" alt="image"><span>(032) 505-7628</span></li>
+                                    <li onclick="confirmNewTab(phoneLink1, phoneMessage1)"
+                                        class="nav-right-phone-calendar button"><img
+                                            src="resources/Icons/mobile-alt-1-svgrepo-com.svg" class="phone-icon"
+                                            alt="image"><span>0961 634
+                                            9939</span></li>
+                                    <a href="#contact-location">
+                                        <li class="nav-right-phone-calendar button"><img
+                                                src="resources/Icons/location-pin-alt-1-svgrepo-com.svg"
+                                                class="location-pin-icon" alt="image"><span
+                                                class="office-location">Panphilo
+                                                Frasco Public Market, Jubay, Liloan, Cebu
+                                            </span></li>
+                                    </a>
+                                </ul>
+
+                            </div>
+                            <div class="office-hours">
+                                <span class="schedule-header">Clinic Hours</span>
+                                <ul>
+                                    <li class="schedule-days"><span>Mon - Sat</span></li>
+                                    <li class="schedule-time"><span>9:00AM - 4:30PM</span></li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                        <a href="./booking/booking.html">
+                            <button class="about-button button button-main">
+                                <img alt="image" src="resources/Icons/calendar.svg" class="home-image07" />
+                                <span class="book-text">Book an appointment</span>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="home-blog" id="blog">
+                <div class="blog01">
+                    <div class="blog-content">
+                        <div class="blog-header">
+                            <h2 class="blog-heading">
+                                Dedicated dentist strives to ensure your dental wellness.
+                            </h2>
+                            <p class="blog-capton">
+                                Dr. Brenice Adrienne V. Albarillo, the esteemed dentist of Northeast Dental, is
+                                committed to
+                                delivering
+                                top-tier dental care, ensuring your well-being with professionalism and precision.
+                            </p>
+                        </div>
+                        <!-- <div class="read-more">
+                        <span class="blog01-text ">Get to know our Dentist</span>
+                        <img alt="image" src="resources/Icons/arrow-2.svg" class=".blog-arrow" />
+                    </div> -->
+                    </div>
+                    <img alt="image" src="resources/external/docwithkid.png" class="blog01-image2" draggable="false" />
+                </div>
+                <div class="blog02">
+                    <div class="blog-content">
+                        <div class="blog-header">
+                            <h2 class="blog-heading">
+                                Secure, Hygienic Setting for Your Comfortable Clinic Visits.
+                            </h2>
+                            <p class="blog-capton">
+                                We uphold clinic cleanliness and safety standards to ensure a comfortable and hygienic
+                                environment
+                                for
+                                our patients' visits.
+                            </p>
+                        </div>
+                        <a href="https://www.google.com/maps/place/NORTHEAST+DENTAL+CLINIC/@10.4220157,123.9958472,18z/data=!4m14!1m7!3m6!1s0x33a9bd3fd2815af3:0x5f91a6b8f97bdb1d!2sNORTHEAST+DENTAL+CLINIC!8m2!3d10.4219761!4d123.9960618!16s%2Fg%2F11mvyq2wg2!3m5!1s0x33a9bd3fd2815af3:0x5f91a6b8f97bdb1d!8m2!3d10.4219761!4d123.9960618!16s%2Fg%2F11mvyq2wg2?hl=en-PH&entry=ttu"
+                            target="_blank">
+                            <a href="#contact-location">
+                                <div class="read-more">
+                                    <span class="home-text24">Locate Our Clinic</span>
+                                    <img alt="image" src="resources/Icons/arrow-2.svg" class="blog-arrow" />
+                                </div>
+                            </a>
+                        </a>
+                    </div>
+                    <img alt="image" src="resources/external/clinicpic.png" class="home-image16" draggable="false" />
+                </div>
+                <div class="blog03">
+                    <div class="blog-content">
+                        <div class="blog-header">
+                            <h2 class="blog-heading">
+                                Find out how we can help you help you.
+                            </h2>
+                            <p class="blog-capton">
+                                Let's assess your oral health. Book a dental checkup, individuals can have their teeth,
+                                gums, and
+                                overall oral condition
+                                evaluated. Let us know what you need.
+                            </p>
+                        </div>
+                        <a href="./booking/booking.html">
+                            <button class="button button-main home-book3">
+                                <span>
+                                    <span>Book a Consultation</span>
+                                    <br />
+                                </span>
+                            </button></a>
+                    </div>
+                    <img alt="image" src="resources/external/toothxray.png" class="home-image17" draggable="false" />
+                </div>
+
+            </section>
+
+            <section id="highlights" class="home-highlights">
+                <div class="highlights-heading">
+                    <h2 class="highlights-header">Why choose us</h2>
+                    <p class="highlights-caption">
+                        Your well-being is our priority, and our streamlined approach ensures a seamless experience.
+                    </p>
+                </div>
+                <div class="highlights-content">
+                    <div class="highlights-video-container">
+                        <iframe class="highlights-video"
+                            src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Ffb.watch%2FpkLO0qVz0I%2F&width=500&show_text=false&height=233&appId"
+                            scrolling="no" frameborder="0" allowfullscreen="true"
+                            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                            allowFullScreen="true"></iframe>
+                        <!-- <video src="" poster="resources/external/clinicpic.png" class="highlights-video"></video> -->
+                        <!-- <div class="highlights-play">
+                        <img alt="image" src="resources/Icons/playbutton1.svg" class="highlights-play-button" />
+                    </div> -->
+                    </div>
+                    <!-- <div class="home-caption7">
+                    <h3 class="home-header10">
+                        Consectetur adipiscing elit, sed do eiusmod tempor
+                    </h3>
+                    <p class="home-header11">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod tempor incididunt.
+                    </p>
+                </div> -->
+                </div>
+            </section>
+
+            <section class="home-practices1" id="services">
+                <div class="home-heading08">
+                    <h2 class="home-text18">Services we Offer</h2>
+                    <p class="home-text19">
+                        Northeast Dental Clinic offers Variety of Dental Services. Click <span>SEE MORE</span> to browse
+                        all
+                        the
+                        services we offer.
+                    </p>
+                </div>
+                <div class="home-content02" id="practices">
+                    <a href="./booking/booking.html">
+                        <div class="home-grid1">
+
+                            <div class="home-practice-wrapper">
+                                <div class="practice-practice">
+                                    <div class="practice-heading">
+                                        <h3 class="practice-header"><span>Consultation</span></h3>
+                                        <p class="practice-caption">
+                                            <span>
+                                                Have a consultation at our dental clinic to discuss your oral health
+                                                needs
+                                                and
+                                                explore your
+                                                treatment options.
+
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="read-more">
+                                        <span class="practice-text">₱350</span> <span>15 mins</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="home-practice-wrapper">
+                                <div class="practice-practice">
+                                    <div class="practice-heading">
+                                        <h3 class="practice-header">
+                                            <span>Oral Prophylaxis</span>
+                                        </h3>
+                                        <p class="practice-caption">
+                                            <span>
+                                                Also known as <em><i>teeth cleaning</i></em>. A dental proceedure done
+                                                with
+                                                the aim
+                                                to
+                                                remove tartar and plaque build-up from the surfaces of the teeth as well
+                                                as
+                                                those hidden in between and under the gums. This proceedure is important
+                                                to
+                                                avoid oral diseases such as...
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="read-more">
+                                        <span class="practice-text">₱350</span> <span>15 mins</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="home-practice-wrapper">
+                                <div class="practice-practice">
+                                    <div class="practice-heading">
+                                        <h3 class="practice-header">
+                                            <span>Tooth Extraction</span>
+                                        </h3>
+                                        <p class="practice-caption">
+                                            <span>
+                                                Tooth extraction is a procedure to remove a tooth from the gum socket.
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="read-more">
+                                        <span class="practice-text">₱350</span> <span>15 mins</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="home-practice-wrapper">
+                                <div class="practice-practice">
+                                    <div class="practice-heading">
+                                        <h3 class="practice-header">
+                                            <span>Tooth Whitening</span>
+                                        </h3>
+                                        <p class="practice-caption">
+                                            <span>
+                                                Tooth whitening is a procedure aimed at lightening the color of teeth
+                                                and
+                                                removing
+                                                stains and
+                                                discoloration.
+
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="read-more">
+                                        <span class="practice-text">₱350</span> <span>15 mins</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="home-practice-wrapper see-more">
+                                <div class="practice-practice">
+                                    <div class="practice-heading">
+                                        <h3 class="practice-header">
+                                            <span>Dental Braces</span>
+                                        </h3>
+                                        <p class="practice-caption">
+                                            <span>
+                                                Dental braces are devices used in orthodontics that align and straighten
+                                                teeth and
+                                                help position
+                                                them with regard to a
+                                                person's bite, while also aiming to improve dental health.
+
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="read-more">
+                                        <span class="practice-text">₱350</span> <span>15 mins</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="home-practice-wrapper see-more">
+                                <div class="practice-practice">
+                                    <div class="practice-heading">
+                                        <h3 class="practice-header"><span>Dentures</span></h3>
+                                        <p class="practice-caption">
+                                            <span>
+                                                Dentures are removable oral appliances that replace missing teeth. There
+                                                are
+                                                many
+                                                types of
+                                                dentures, including full,
+                                                partial and implant-supported dentures.
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="read-more">
+                                        <span class="practice-text">₱350</span> <span>15 mins</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="home-practice-wrapper see-more">
+                                <div class="practice-practice">
+                                    <div class="practice-heading">
+                                        <h3 class="practice-header"><span>Periapical X-ray</span></h3>
+                                        <p class="practice-caption">
+                                            <span>
+                                                Periapical X-ray shows your entire tooth, from the crown to the root
+                                                tip.
+                                                This type of X-ray helps to detect decay, gum
+                                                disease, bone loss and any other abnormalities of your tooth or
+                                                surrounding
+                                                bone.
+
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="read-more">
+                                        <span class="practice-text">₱350</span> <span>15 mins</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="home-practice-wrapper see-more">
+                                <div class="practice-practice">
+                                    <div class="practice-heading">
+                                        <h3 class="practice-header"><span>Cosmetic Veneers</span></h3>
+                                        <p class="practice-caption">
+                                            <span>
+                                                Dental veneers are thin, tooth-colored shells that are attached to the
+                                                front
+                                                surface of teeth to improve their
+                                                appearance.
+
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="read-more">
+                                        <span class="practice-text">₱350</span> <span>15 mins</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="home-practice-wrapper see-more">
+                                <div class="practice-practice">
+                                    <div class="practice-heading">
+                                        <h3 class="practice-header"><span>Crowns & Bridges</span></h3>
+                                        <p class="practice-caption">
+                                            <span>
+                                                A bridge is a fixed dental restoration used to replace one or more
+                                                missing
+                                                teeth by joining an artificial tooth
+                                                definitively to adjacent teeth or dental implants
+
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="read-more">
+                                        <span class="practice-text">₱350</span> <span>15 mins</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="home-practice-wrapper see-more">
+                                <div class="practice-practice">
+                                    <div class="practice-heading">
+                                        <h3 class="practice-header"><span>Impacted Tooth Surgery</span></h3>
+                                        <p class="practice-caption">
+                                            <span>
+                                                Wisdom tooth extraction is a surgical procedure to remove one or more
+                                                wisdom
+                                                teeth the four permanent adult teeth
+                                                located at the back corners of your mouth on the top and bottom.
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="read-more">
+                                        <span class="practice-text">₱350</span> <span>15 mins</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="home-practice-wrapper see-more">
+                                <div class="practice-practice">
+                                    <div class="practice-heading">
+                                        <h3 class="practice-header"><span>Root Canal Treatment</span></h3>
+                                        <p class="practice-caption">
+                                            <span>
+                                                Root canal is a treatment to repair and save a badly damaged or infected
+                                                tooth instead of removing it. The term "root
+                                                canal" comes from cleaning of the canals inside a tooth's root.
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="read-more">
+                                        <span class="practice-text">₱350</span> <span>15 mins</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="home-practice-wrapper see-more">
+                                <div class="practice-practice">
+                                    <div class="practice-heading">
+                                        <h3 class="practice-header"><span>Fluoride Application</span></h3>
+                                        <p class="practice-caption">
+                                            <span>
+                                                Topical fluorides strengthen teeth already present in the mouth, making
+                                                them
+                                                more decay resistant.
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="read-more">
+                                        <span class="practice-text">₱350</span> <span>15 mins</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="home-practice-wrapper see-more">
+                                <div class="practice-practice">
+                                    <div class="practice-heading">
+                                        <h3 class="practice-header"><span>Dental Filling <span></h3>
+                                        <p class="practice-caption">
+                                            <span>
+                                                To treat a cavity your dentist will remove the decayed portion of the
+                                                tooth
+                                                and then "fill" the area on the tooth where
+                                                the decayed material once lived.
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="read-more">
+                                        <span class="practice-text">₱350</span> <span>15 mins</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="home-practice-wrapper see-more">
+                                <div class="practice-practice">
+                                    <div class="practice-heading">
+                                        <h3 class="practice-header"><span>Others <span></h3>
+                                        <p class="practice-caption">
+                                            <span>
+                                                If you have other dental concerns, please contact us so we can assist
+                                                you.
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="read-more">
+                                        <span class="practice-text">...</span> <span></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </a>
+                    <button class="button button-main" id="seeMoreLess" onclick="seeMoreseeLess()">
+                        <span>See More</span>
+                    </button>
+                </div>
+            </section>
+
+            <section id="schedule" class="home-schedule">
+                <div class="home-content07">
+                    <div class="home-header15">
+                        <h2 class="home-heading13">
+                            Schedule an in person Appointment with Us
+                        </h2>
+                        <p class="home-caption8">
+                            <span>
+                                Schedule your in-person appointment for personalized and comprehensive dental care.
+                                Choose a
+                                date online
+                                or call our friendly
+                                staff.
+                            </span>
+                            <!-- <br> -->
+                            <span>
+                                Begin your journey to a healthier smile today.
+                            </span>
+                        </p>
+                    </div>
+                    <div class="home-types">
+                        <a href="./booking/booking.html">
+                            <button class="home-book-person button button-main button-white">
+                                <span>Book an Appointment</span>
+                            </button></a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="home-reviews-section" id="reviews">
+                <div class="home-reviews">
+                    <div class="reviews-header">
+                        <h2 class="reviews-heading">We appreciate your honest reviews.</h2>
+                    </div>
+                    <div class="splide reviews-content-outer" id="splide">
+
+                        <div class="splide__track">
+                            <div class="splide__list reviews-content">
+                                <div class="splide__slide reviews-box">
+                                    <div class="reviews-box-icon"><img src="resources/Icons/quote-svgrepo-com.svg"
+                                            alt="" class="quote-icon"></div>
+                                    <div class="reviews-box-content1">
+                                        <p class="review-statement">Super recommended (Northeast Dental) Grabe ka nice
+                                            og ka
+                                            friendly ni Doc. Brenice then dili jud ka ma pressure kay makig
+                                            storya jud siya nimo then pretty pa jud siya then nice sad og staff as in.
+                                        </p>
+                                    </div>
+                                    <div class="reviews-box-content2">
+                                        <span class="review-author">-Romejean
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="splide__slide reviews-box">
+                                    <div class="reviews-box-icon"><img src="resources/Icons/quote-svgrepo-com.svg"
+                                            alt="" class="quote-icon"></div>
+                                    <div class="reviews-box-content1">
+                                        <p class="review-statement">I highly recommend this clinic. They're very
+                                            accommodating, kind and thoughtful. I want to express my utmost
+                                            appreciation for the level of care we received from you and your staff
+                                            recently.
+                                            You are incredibly courteous and a true
+                                            expert in your field. ⭐⭐⭐⭐⭐</p>
+                                    </div>
+                                    <div class="reviews-box-content2">
+                                        <span class="review-author">-Cherish
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="splide__slide reviews-box">
+                                    <div class="reviews-box-icon"><img src="resources/Icons/quote-svgrepo-com.svg"
+                                            alt="" class="quote-icon"></div>
+                                    <div class="reviews-box-content1">
+                                        <p class="review-statement">My experience at todays visit was excellent, very
+                                            professional, helpful and friendly. Very good at explaining any dental
+                                            work needed and offering the best options. Highly recommend this place 👌
+                                            Thank you very much!</p>
+                                    </div>
+                                    <div class="reviews-box-content2">
+                                        <span class="review-author">-Rovelyn
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="splide__slide reviews-box">
+                                    <div class="reviews-box-icon"><img src="resources/Icons/quote-svgrepo-com.svg"
+                                            alt="" class="quote-icon"></div>
+                                    <div class="reviews-box-content1">
+                                        <p class="review-statement">NorthEast Dental Clinic is amazing! Their service is
+                                            top-notch, delivering outstanding care and attention to detail. The
+                                            staff is friendly and knowledgeable, making you feel comfortable throughout
+                                            your
+                                            visit. The clinic’s commitment to
+                                            patient satisfaction, coupled with their skilled dentists and modern
+                                            facilities,
+                                            ensures an excellent dental experience.
+                                            Highly recommended!</p>
+                                    </div>
+                                    <div class="reviews-box-content2">
+                                        <span class="review-author">-Alyssa
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="splide__slide reviews-box">
+                                    <div class="reviews-box-icon"><img src="resources/Icons/quote-svgrepo-com.svg"
+                                            alt="" class="quote-icon"></div>
+                                    <div class="reviews-box-content1">
+                                        <p class="review-statement">I really recommend this clinic, very accommodating
+                                            and
+                                            friendly. And ganahan kaayu kos pagka tabian ni Dr. Brenice HAHA.
+                                            Also the clinic is very clean.</p>
+                                    </div>
+                                    <div class="reviews-box-content2">
+                                        <span class="review-author">-Clavel
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="splide__slide reviews-box">
+                                    <div class="reviews-box-icon"><img src="resources/Icons/quote-svgrepo-com.svg"
+                                            alt="" class="quote-icon"></div>
+                                    <div class="reviews-box-content1">
+                                        <p class="review-statement">First time to avail the service and superb ka nice
+                                            jud.
+                                            Accommodating kaayo si Doc and mu explain jud thoroughly na
+                                            makasabot jud ka. No hidden charges pajud, unlike sa uban maningil gihapon
+                                            fee
+                                            for PPE 🙄
+                                            Will definitely be back to this clinic for our family's dental needs. 👌</p>
+                                    </div>
+                                    <div class="reviews-box-content2">
+                                        <span class="review-author">-Shiela
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="splide__slide reviews-box">
+                                    <div class="reviews-box-icon"><img src="resources/Icons/quote-svgrepo-com.svg"
+                                            alt="" class="quote-icon"></div>
+                                    <div class="reviews-box-content1">
+                                        <p class="review-statement">Very nice ang ilang service and friendly and
+                                            approachable ra si doc brenice, good dental clinic with a clean
+                                            environment. 1000/10 akong rating not to be favored but nindot jud ang
+                                            service,
+                                            if you want a nice smile come check and
+                                            visit Northeast Dental🤍</p>
+                                    </div>
+                                    <div class="reviews-box-content2">
+                                        <span class="review-author">-Kyla
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="splide__slide reviews-box">
+                                    <div class="reviews-box-icon"><img src="resources/Icons/quote-svgrepo-com.svg"
+                                            alt="" class="quote-icon"></div>
+                                    <div class="reviews-box-content1">
+                                        <p class="review-statement">Doc and the staff is very accommodating
+                                            Nice and friendly environment.
+                                            Highly recommended!!!
+                                            Thank you for the excellent service</p>
+                                    </div>
+                                    <div class="reviews-box-content2">
+                                        <span class="review-author">-Arlie
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="splide__slide reviews-box">
+                                    <div class="reviews-box-icon"><img src="resources/Icons/quote-svgrepo-com.svg"
+                                            alt="" class="quote-icon"></div>
+                                    <div class="reviews-box-content1">
+                                        <p class="review-statement">⭐⭐⭐⭐⭐
+                                            This dental clinic, with its modern facilities and welcoming atmosphere, is
+                                            truly top-notch.🩷♥️ Dr. Brenice is
+                                            professional, friendly, and highly skilled.❣️The staff is equally
+                                            commendable,
+                                            providing excellent service and making
+                                            patients feel at ease.🤍🧡Highly recommended for anyone seeking quality
+                                            dental
+                                            care. Thanks to Dr. Brenice and the
+                                            entire team for their amazing work!</p>
+                                    </div>
+                                    <div class="reviews-box-content2">
+                                        <span class="review-author">-Roel
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="splide__slide reviews-box">
+                                    <div class="reviews-box-icon"><img src="resources/Icons/quote-svgrepo-com.svg"
+                                            alt="" class="quote-icon"></div>
+                                    <div class="reviews-box-content1">
+                                        <p class="review-statement">Clinic was very clean. You can see that they are
+                                            well
+                                            prep from one patient to another. Friendly doctors and will really
+                                            give you a detailed explaination of what they are doing and what to expect.
+                                            🙂
+                                            child friendly. highly recommended!</p>
+                                    </div>
+                                    <div class="reviews-box-content2">
+                                        <span class="review-author">-Nuae
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="splide__slide reviews-box">
+                                    <div class="reviews-box-icon"><img src="resources/Icons/quote-svgrepo-com.svg"
+                                            alt="" class="quote-icon"></div>
+                                    <div class="reviews-box-content1">
+                                        <p class="review-statement">the environment was clean.. friendly staff and
+                                            doctor..thank you..👍🏻</p>
+                                    </div>
+                                    <div class="reviews-box-content2">
+                                        <span class="review-author">-Malnegro
+                                        </span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="home-location-section" id="contact-location">
+                <div class="location-background">
+                    <div class="location-top">
+                        <div class="clinic-contents">
+                            <div class="clinic-content1">
+                                <h1 class="clinic-header">Our Clinic</h1>
+                            </div>
+                            <div class="clinic-content2">
+                                <div class="phone-info">
+                                    <span class="phone-header">Phone</span>
+                                    <div class="phone-numbers">
+                                        <span class="phone" onclick="confirmNewTab(phoneLink2, phoneMessage1)">032 505
+                                            7628</span>
+                                        <span class="phone" onclick="confirmNewTab(phoneLink1, phoneMessage1)">0961 634
+                                            9939</span>
+                                    </div>
+                                </div>
+
+                                <div class="hours-info">
+                                    <span class="hours-header">Hours</span>
+                                    <div class="hours-schedule">
+                                        <span class="hours">MON-SAT</span>
+                                        <span class="hours">9:00AM - 4:30PM</span>
+                                    </div>
+                                </div>
+
+                                <div class="address-info">
+                                    <span class="address-header">Address</span>
+                                    <span class="address">Panphilo
+                                        Frasco Public Market, Jubay, Liloan, Cebu</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clinic-image">
+                            <img src="resources/external/clinicpic.png" alt="" draggable="false">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="location-bottom">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1961.9972174003601!2d123.9958472!3d10.4220157!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a9bd3fd2815af3%3A0x5f91a6b8f97bdb1d!2sNORTHEAST%20DENTAL%20CLINIC!5e0!3m2!1sen!2sph!4v1703749041396!5m2!1sen!2sph"
+                        width="" height="" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+
+            </section>
+
+            <section class="home-quote-section">
+                <div>
+                    <div class="last-quote"><span>"Every tooth in a man’s head is more valuable than a diamond."</span>
+                    </div>
+                    <div class="last-quote-author"><span>-de Cervantes</span></div>
+                </div>
+            </section>
+
+            <section class="home-footer">
+                <div class="footer-max">
+                    <div class="footer-left">
+                        <div class="footer-logo">
+                            <a href="#"><img alt="image" src="resources/Branding/Northeast-logo-Gray-White.svg"
+                                    class="footer-logo-img" /></a>
+
+                            <p class="footer-logo-text">
+                                We aim to provide the best and most appropriate dental
+                                treatment for each individual.
+                            </p>
+                        </div>
+                        <div class="footer-socials">
+                            <div class="social">
+                                <a href="https://www.facebook.com/northeastdental2020" target="_blank"><img
+                                        alt="Facebook Page" src="resources/Icons/facebook.svg"
+                                        class="social-image" /></a>
+                            </div>
+                            <div class="social">
+                                <a href="mailto:northeastdental2020@gmail.com" target="_blank"><img alt="Gmail"
+                                        src="resources/Icons/gmail-icon.svg" class="social-image" /></a>
+                            </div>
+                            <div class="social">
+                                <a href="https://m.me/northeastdental2020/" target="_blank"><img
+                                        alt="Facebook Messenger" src="resources/Icons/messenger-fill-svgrepo-com.svg"
+                                        alt="Messenger" class="social-image" /></a>
+                            </div>
+                        </div>
+                        <div class="footer-legal">
+                            <span class="home-copyright">
+                                © 2023 Northeast Dental Clinic. All Rights Reserved.
+                            </span>
+                            <!-- <span class="legal-link">Privacy Policy</span>
+            <span class="legal-link">Terms of Use</span> -->
+                        </div>
+                    </div>
+                    <div class="footer-right">
+                        <div class="footer-right01">
+                            <span class="footer-header">Menu</span>
+                            <div class="footer-links">
+                                <span class="footer-link"><a href="#home">Home</a></span>
+                                <span class="footer-link"><a href="#about">About</a></span>
+                                <span class="footer-link"><a href="#blog">Blog</a></span>
+                                <span class="footer-link"><a href="#services">Services</a></span>
+                                <span class="footer-link"><a href="#schedule">Book an Appointment</a></span>
+                            </div>
+                        </div>
+                        <!-- <div class="home-list2">
+            <span class="home-header17">Resources</span>
+            <div class="home-links2">
+              <span class="home-link10">Patients' Gallery</span>
+              <span class="home-link11">Doctor</span>
+            </div>
+          </div> -->
+                        <div class="footer-right02">
+                            <span class="footer-header">Contact</span>
+                            <div class="footer-links">
+                                <a href="#contact-location"><span class="footer-link">
+                                        Panphilo Frasco Public Market, Jubay, Liloan, Cebu
+                                    </span></a>
+                                <a onclick="confirmNewTab(mailtoLink, mailtoMessage)" class="footer-link">
+                                    northeastdental2020@gmail.com
+                                </a>
+                                <a onclick="confirmNewTab(phoneLink2, phoneMessage1)" class="footer-link">
+                                    (032) 505-7628
+                                </a>
+                                <a onclick="confirmNewTab(phoneLink1, phoneMessage1)" class="footer-link">
+                                    +63 961 634 9939
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="home-legal1">
+                        <!-- <div class="home-row">
+                    <span class="legal-link">Privacy Policy</span>
+                    <span class="legal-link">Terms of Use</span>
+                </div> -->
+                        <span class="home-copyright5">
+                            © 2023 Northeast Dental Clinic. All Rights Reserved.
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+    </script>
+
+</body>
+
+
+</html>
