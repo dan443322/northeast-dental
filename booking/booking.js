@@ -54,7 +54,7 @@ function submitForm(e) {
 
   setTimeout(() => {
     document.getElementById("appointmentForm").reset();
-    window.location.href = "/index.html";
+    window.history.back();
   }, 3000);
 }
 
