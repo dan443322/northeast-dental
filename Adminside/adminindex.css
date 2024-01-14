@@ -16,9 +16,10 @@
   --black-light-color: #707070;
   --border-color: #e6e5e5;
   --toggle-color: #ddd;
-  --box1-color: #4da3ff;
-  --box2-color: #ffe6ac;
-  --box3-color: #e7d1fc;
+  --box1-color: #9bff92;
+  --box2-color: #4da3ff;
+  --box3-color: #fdf9c4;
+  --box4-color: #ff9292;
   --title-icon-color: #fff;
 
   /* ====== Transition ====== */
@@ -45,16 +46,16 @@ body {
   transition: all 0.3s ease;
 }
 
-::-webkit-scrollbar-thumb:hover {
+/* ::-webkit-scrollbar-thumb:hover {
   background: #0b3cc1;
-}
+} */
 
 nav {
   position: fixed;
   top: 0;
   left: 0;
   height: 100%;
-  width: 250px;
+  width: 205px;
   padding: 10px 14px;
   background-color: var(--panel-color);
   border-right: 1px solid var(--border-color);
@@ -70,12 +71,14 @@ nav .logo-name {
 nav .logo-image {
   display: flex;
   justify-content: center;
-  min-width: 45px;
+  object-fit: cover;
+  height: 50px;
 }
 nav .logo-image img {
-  width: 40px;
+  width: 100%;
+  height: 60px;
   object-fit: cover;
-  border-radius: 50%;
+  /* border-radius: 50%; */
 }
 
 nav .logo-name .logo_name {
@@ -83,7 +86,7 @@ nav .logo-name .logo_name {
   font-weight: 600;
   color: var(--text-color);
   margin-left: 14px;
-  transition: var(--tran-05);
+  transition: var(--tran-03);
 }
 nav.close .logo_name {
   opacity: 0;
@@ -105,6 +108,7 @@ nav .menu-items {
   height: 50px;
   text-decoration: none;
   position: relative;
+  cursor: pointer;
 }
 .nav-links li a:hover:before {
   content: "";
@@ -112,8 +116,6 @@ nav .menu-items {
   left: -7px;
   height: 5px;
   width: 5px;
-  border-radius: 50%;
-  background-color: var(--primary-color);
 }
 
 .menu-items li a i {
@@ -129,14 +131,28 @@ nav .menu-items {
   font-size: 18px;
   font-weight: 400;
   color: var(--black-light-color);
-  transition: var(--tran-05);
+  transition: var(--tran-03);
 }
 nav.close li a .link-name {
   opacity: 0;
   pointer-events: none;
 }
-.nav-links li a:hover i,
-.nav-links li a:hover .link-name {
+.nav-links li :hover i,
+.nav-links li :hover .link-name {
+  color: var(--primary-color);
+}
+.nav-links li :hover {
+  background-color: rgb(209, 209, 209);
+  border-radius: 4px;
+  transition: var(--tran-05);
+}
+.active-click {
+  background-color: rgb(209, 209, 209);
+  border-radius: 4px;
+  transition: var(--tran-05);
+}
+
+.nav-links-active {
   color: var(--primary-color);
 }
 
@@ -182,7 +198,7 @@ nav.close li a .link-name {
 
 .dashboard {
   position: relative;
-  left: 250px;
+  left: 205px;
   background-color: var(--panel-color);
   min-height: 100vh;
   width: calc(100% - 250px);
@@ -285,7 +301,7 @@ nav.close ~ .dashboard .top {
   flex-direction: column;
   align-items: center;
   border-radius: 12px;
-  width: calc(100% / 3 - 15px);
+  width: calc(100% / 4 - 15px);
   padding: 15px 20px;
   background-color: var(--box1-color);
   transition: var(--tran-05);
@@ -310,6 +326,9 @@ nav.close ~ .dashboard .top {
 }
 .boxes .box.box3 {
   background-color: var(--box3-color);
+}
+.boxes .box.box4 {
+  background-color: var(--box4-color);
 }
 .dash-content .activity .activity-data {
   display: flex;
@@ -434,9 +453,10 @@ nav.close ~ .dashboard .top {
   }
 }
 
-th span {
-  width: inherit;
-  /* align-items: center;
-  justify-content: center;
-  display: flex; */
+.client {
+  animation: all 0.5s ease-out;
+}
+
+.client-undefined {
+  display: none;
 }

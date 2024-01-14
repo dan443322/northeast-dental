@@ -70,15 +70,16 @@ const saveMessages = (
   date,
   time
 ) => {
-  var newappointmentForm = appointmentFormDB.push();
-
-  newappointmentForm.set({
-    name: name,
-    phone: phone,
-    email: emailid,
-    service: finalSelectedService,
-    date: date,
-    time: time,
-    status: "pending",
-  });
+  firebase
+    .database()
+    .ref("appointmentForm" + "/" + name)
+    .set({
+      name: name,
+      phone: phone,
+      email: emailid,
+      service: finalSelectedService,
+      date: date,
+      time: time,
+      status: "pending",
+    });
 };

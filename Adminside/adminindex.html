@@ -24,32 +24,37 @@
     <nav>
         <div class="logo-name">
             <div class="logo-image">
-                <img src="../resources/Branding/Northeast-logo-blue-white-transparent.svg" alt="">
+                <img src="../resources//Branding/Northeast-logo1.svg" alt="">
             </div>
-            <span class="logo_name">Admin Panel</span>
+
+            <!-- <span class="logo_name">Admin Panel</span> -->
         </div>
         <div class="menu-items">
             <ul class="nav-links">
-                <li><a href="#">
+                <li id="dashboard-click" class="active-click"><a>
                         <i class="uil uil-estate"></i>
                         <span class="link-name">Dashboard</span>
                     </a></li>
-                <li><a href="#">
+                <li id="filter-approved"><a>
                         <i class="uil uil-thumbs-up"></i>
                         <span class="link-name">Approved</span>
                     </a></li>
-                <li><a href="#">
+                <li id="filter-pending"><a>
                         <i class="uil uil-comments"></i>
                         <span class="link-name">Pending</span>
                     </a></li>
-                <li><a href="#">
+                <li id="filter-completed"><a>
+                        <i class="uil uil-share"></i>
+                        <span class="link-name">Completed</span>
+                    </a></li>
+                <li id="filter-declined"><a>
                         <i class="uil uil-share"></i>
                         <span class="link-name">Declined</span>
                     </a></li>
             </ul>
 
             <ul class="logout-mode">
-                <li><a href="#">
+                <li id="logout"><a>
                         <i class="uil uil-signout"></i>
                         <span class="link-name">Logout</span>
                     </a></li>
@@ -67,20 +72,26 @@
                 <div class="boxes">
                     <div class="box box1">
                         <i class="uil uil-thumbs-up"></i>
-                        <span class="text">Approved</span>
-                        <span class="number">50,120</span>
+                        <span class="text">Completed</span>
+                        <span class="number">--</span>
                     </div>
                     <div class="box box2">
-                        <i class="uil uil-comments"></i>
-                        <span class="text">Pending</span>
-                        <span class="number">20,120</span>
+                        <i class="uil uil-thumbs-up"></i>
+                        <span class="text">Approved</span>
+                        <span class="number">--</span>
                     </div>
                     <div class="box box3">
+                        <i class="uil uil-comments"></i>
+                        <span class="text">Pending</span>
+                        <span class="number">--</span>
+                    </div>
+                    <div class="box box4">
                         <i class="uil uil-share"></i>
                         <span class="text">Declined</span>
-                        <span class="number">10,120</span>
+                        <span class="number">--</span>
                     </div>
                 </div>
+
             </div>
             <div class="activity">
                 <div class="title">
@@ -88,10 +99,10 @@
                     <span class="text">Recent Client Appointment Application</span>
                 </div>
 
-                <table class="table table-hover table-light">
+                <table class="table table-hover table-light" id="selected-table">
                     <thead>
                         <th class="">
-                            <span class="data-title">No.</span>
+                            <span class="data-title">ID No.</span>
                         </th>
                         <th class="">
                             <span class="data-title">Name</span>
@@ -124,7 +135,7 @@
             </div>
         </div>
     </section>
-    <!-- <script src="adminindex.js"></script> -->
+
     <script type="module">
 
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
@@ -150,10 +161,17 @@
         var tBody = document.querySelector("#tbody1");
 
         tBody.innerHTML = "";
+
         let appointmentID = 0;
+        let completedID = 0;
+        let approvedID = 0;
+        let pendingID = 0;
+        let declinedID = 0;
+
 
         function AddRequestToTable(date, email, name, phone, service, status, time) {
             let tRow = document.createElement("tr");
+            tRow.classList.add("client");
 
             let td1 = document.createElement("td");
             let td2 = document.createElement("td");
@@ -175,6 +193,7 @@
 
             tRow.appendChild(td1);
             tRow.appendChild(td5);
+            td5.classList.add("name-id");
             tRow.appendChild(td3);
             tRow.appendChild(td2);
             tRow.appendChild(td4);
@@ -182,10 +201,21 @@
             tRow.appendChild(td8);
             tRow.appendChild(td6);
 
+            if (td6.innerText == "pending") {
+                tRow.classList.add("client-pending");
+            } if (td6.innerText == "approved") {
+                tRow.classList.add("client-approved");
+            } if (td6.innerText == "completed") {
+                tRow.classList.add("client-completed");
+            } if (td6.innerText == "declined") {
+                tRow.classList.add("client-declined");
+            } if (td6.innerText == "undefined") {
+                tRow.classList.add("client-undefined");
+            }
+
+
             tBody.appendChild(tRow);
-
         }
-
         function AddAllRequeststoTable(AppointmentRequests) {
 
             tBody.innerHTML = "";
@@ -204,8 +234,8 @@
         }
 
 
-        //Will Use Soon
-        // function GetAllDataOnce() {
+
+        // function GetAllCompletedOnce() {
         //     const dbRef = ref(db);
 
         //     get(child(dbRef, "/appointmentForm/")).then((snapshot) => {
@@ -219,22 +249,180 @@
         //     });
         // }
 
+        // function AddClasstoElements() {
+        //         if (status == "completed") {
+        //             tRow.classList.add("completed");
+        //         }
+        //         if (status == "approved") {
+        //             tRow.classList.add("approved");
+        //         }
+        //         if (
+        //             status == "pending") {
+        //             tRow.classList.add("pending");
+        //         }
+        //         if (status == "declined") {
+        //             tRow.classList.add("declined");
+        //         }
+        //     }
+
         function GetAllDataRealTime() {
             const dbRef = ref(db, 'appointmentForm');
 
             onValue(dbRef, (snapshot) => {
                 var requests = [];
 
+                appointmentID = 0;
+                completedID = 0;
+                approvedID = 0;
+                pendingID = 0;
+                declinedID = 0;
+
                 snapshot.forEach((childSnapshot) => {
+                    console.log(requests);
                     requests.push(childSnapshot.val());
+                    if (childSnapshot.val().status == "completed") {
+                        // requests.push(childSnapshot.val());
+                        completedID++;
+                        console.log(completedID);
+                    }
+                    if (childSnapshot.val().status == "approved") {
+                        // requests.push(childSnapshot.val());
+                        approvedID++;
+                        console.log(approvedID);
+                    }
+                    if (childSnapshot.val().status == "pending") {
+                        // requests.push(childSnapshot.val());
+                        pendingID++;
+                    }
+                    if (childSnapshot.val().status == "declined") {
+                        // requests.push(childSnapshot.val());
+                        declinedID++;
+                    }
                 });
 
                 AddAllRequeststoTable(requests);
             });
         }
 
+        function GetCompletedDataRealTime() {
+            const dbRef = ref(db, 'appointmentForm');
+
+            onValue(dbRef, (snapshot) => {
+                var requests = [];
+
+                snapshot.forEach((childSnapshot) => {
+                    if (childSnapshot.val().status == "completed") {
+                        requests.push(childSnapshot.val());
+                        console.log(approvedID);
+                    }
+                    if (childSnapshot.val().status == "approved") {
+                        console.log(approvedID);
+                    }
+                    if (childSnapshot.val().status == "pending") {
+                    }
+                    if (childSnapshot.val().status == "declined") {
+                    }
+                });
+
+                AddAllRequeststoTable(requests);
+            });
+        }
+
+        function GetApprovedDataRealTime() {
+            const dbRef = ref(db, 'appointmentForm');
+
+            onValue(dbRef, (snapshot) => {
+                var requests = [];
+
+                snapshot.forEach((childSnapshot) => {
+                    if (childSnapshot.val().status == "completed") {
+
+                        console.log(approvedID);
+                    }
+                    if (childSnapshot.val().status == "approved") {
+                        requests.push(childSnapshot.val());
+
+                        console.log(approvedID);
+                    }
+                    if (childSnapshot.val().status == "pending") {
+
+                    }
+                    if (childSnapshot.val().status == "declined") {
+
+                    }
+                });
+
+                AddAllRequeststoTable(requests);
+            });
+        }
+
+        function GetPendingDataRealTime() {
+            const dbRef = ref(db, 'appointmentForm');
+
+            onValue(dbRef, (snapshot) => {
+                var requests = [];
+
+                snapshot.forEach((childSnapshot) => {
+                    if (childSnapshot.val().status == "completed") {
+                    }
+                    if (childSnapshot.val().status == "approved") {
+                    }
+                    if (childSnapshot.val().status == "pending") {
+                        requests.push(childSnapshot.val());
+                    }
+                    if (childSnapshot.val().status == "declined") {
+                    }
+                });
+
+                AddAllRequeststoTable(requests);
+            });
+        }
+
+
+        function GetDeclinedDataRealTime() {
+            const dbRef = ref(db, 'appointmentForm');
+
+            onValue(dbRef, (snapshot) => {
+                var requests = [];
+
+                snapshot.forEach((childSnapshot) => {
+                    if (childSnapshot.val().status == "completed") {
+                    }
+                    if (childSnapshot.val().status == "approved") {
+                    }
+                    if (childSnapshot.val().status == "pending") {
+                    }
+                    if (childSnapshot.val().status == "declined") {
+                        requests.push(childSnapshot.val());
+                    }
+                });
+
+                AddAllRequeststoTable(requests);
+            });
+        }
+
+
         window.onload = GetAllDataRealTime();
+
+        window.onload = setInterval(() => {
+            document.querySelector(".box1 .number").innerText = completedID;
+            document.querySelector(".box2 .number").innerText = approvedID;
+            document.querySelector(".box3 .number").innerText = pendingID;
+            document.querySelector(".box4 .number").innerText = declinedID;
+        }, 2000);
+
+
+        tBody.addEventListener('click', function (e) {
+            let clientElement = e.target.closest('.client');
+            if (clientElement) {
+                let childElement = clientElement.querySelector('.name-id');
+                if (childElement) {
+                    console.log(childElement.textContent);
+                }
+            }
+        });
     </script>
+    <script src="./adminindex.js"></script>
 </body>
 
 </html>

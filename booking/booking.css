@@ -26,6 +26,12 @@ header > div {
   align-items: center;
   justify-content: space-between;
 }
+.form-heading {
+  margin-top: -100px;
+  font-size: 24px;
+  font-weight: 600;
+  color: white;
+}
 
 .nav-left {
   gap: var(--dl-space-space-twounits);
@@ -117,8 +123,9 @@ header > div {
   align-self: flex-start;
   font-style: normal;
   font-weight: 600;
-  padding-bottom: var(--dl-space-space-threeunits);
+  border-bottom: 2px solid white;
 }
+
 .mb-5 {
   margin-bottom: 20px;
 }
@@ -130,7 +137,10 @@ header > div {
 .form-wrapper {
   max-width: 430px;
   width: 100%;
-  /* background: white; */
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: var(--dl-space-space-oneunit);
   position: relative;
 }
 .form-background {
