@@ -46,9 +46,25 @@ body {
   transition: all 0.3s ease;
 }
 
-/* ::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
   background: #0b3cc1;
-} */
+}
+
+.preloader-bg {
+  min-width: 100%;
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  background-color: #e7e7e7;
+  position: fixed;
+  z-index: 10000;
+  opacity: 1;
+  animation-fill-mode: forwards;
+}
+.preloader img {
+  width: 50px;
+  object-fit: cover;
+}
 
 nav {
   position: fixed;
@@ -459,4 +475,10 @@ nav.close ~ .dashboard .top {
 
 .client-undefined {
   display: none;
+}
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
 }

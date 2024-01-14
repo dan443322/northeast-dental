@@ -13,8 +13,15 @@ function ifAdminCredential() {
 window.addEventListener("load", ifAdminCredential);
 
 logoutBtn.addEventListener("click", () => {
-  sessionStorage.removeItem("admin");
-  window.location.href = "./adminsignin.html";
+  const preloader = document.getElementById("preloading");
+  preloader.style.display = "";
+  preloader.style.opacity = 0;
+  preloader.style.animation = "fade-in 0.5s ease-in-out forwards";
+
+  setTimeout(() => {
+    sessionStorage.removeItem("admin");
+    window.location.href = "./adminsignin.html";
+  }, 1500);
 });
 
 // function GetCompletedDataClick() {

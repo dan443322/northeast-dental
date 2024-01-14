@@ -5,6 +5,22 @@
   /* outline: 1px solid red; */
 }
 
+.preloader-bg {
+  min-width: 100%;
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  background-color: #e7e7e7;
+  position: fixed;
+  z-index: 10000;
+  opacity: 1;
+  animation-fill-mode: forwards;
+}
+.preloader img {
+  width: 50px;
+  object-fit: cover;
+}
+
 header {
   position: fixed;
   top: 0;
