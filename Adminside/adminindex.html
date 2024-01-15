@@ -64,7 +64,6 @@
         </div>
     </nav>
     <section class="dashboard">
-
         <div class="dash-content">
             <div class="overview">
                 <div class="title" style="margin: 0 0 30px 0">
@@ -202,6 +201,7 @@
             tRow.appendChild(td7);
             tRow.appendChild(td8);
             tRow.appendChild(td6);
+            td6.classList.add("status-id");
 
             if (td6.innerText == "pending") {
                 tRow.classList.add("client-pending");
@@ -416,10 +416,13 @@
 
         tBody.addEventListener('click', function (e) {
             let clientElement = e.target.closest('.client');
+
             if (clientElement) {
                 let childElement = clientElement.querySelector('.name-id');
+                let statusElement = clientElement.querySelector('.status-id');
                 if (childElement) {
                     console.log(childElement.textContent);
+                    console.log(statusElement.textContent);
                 }
             }
         });
